@@ -23,6 +23,9 @@ public class HomeController {
     public String homeAction(Model model){
         model.addAttribute("institutions", institutionRepository.findAll());
         model.addAttribute("allDonationsQuantity", donationRepository.selectTotalQuantity());
+        model.addAttribute("allDonations", donationRepository.count());
         return "index";
     }
+
+
 }

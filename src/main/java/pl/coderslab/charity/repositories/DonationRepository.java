@@ -9,4 +9,5 @@ import pl.coderslab.charity.entities.Donation;
 public interface DonationRepository extends JpaRepository<Donation,Long> {
 @Query("SELECT sum (d.quantity) from Donation d")
     Integer selectTotalQuantity();
+
 }
