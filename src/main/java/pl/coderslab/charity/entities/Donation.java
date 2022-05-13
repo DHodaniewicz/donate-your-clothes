@@ -45,4 +45,5 @@ public class Donation {
     public int hashCode() {
         return Objects.hash(getId(), getQuantity(), getCategories(), getInstitution(), getStreet(), getCity(), getZipCode(), getPickUpDate(), getPickUpTime(), getPickUpComment());
     }
+
 }
