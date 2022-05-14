@@ -164,11 +164,49 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+      const quantity = document.getElementById('quantity');
+      const summaryQuantity = document.getElementById('summaryQuantity');
+
+      const street = document.getElementById('street');
+      const city = document.getElementById('city');
+      const zipCode = document.getElementById('zipCode');
+
+      const date = document.getElementById('date');
+      const pickUpTime = document.getElementById('pickUpTime');
+      const pickUpComment = document.getElementById('pickUpComment');
+
+
+
+      const pickupAddress = document.getElementById('pickupAddress')
+      pickupAddress.children[0].innerText = street.value;
+      pickupAddress.children[1].innerText = city.value;
+      pickupAddress.children[2].innerText = zipCode.value;
+
+      const pickupDate = document.getElementById('pickupDate');
+      pickupDate.children[0].innerText = date.value;
+      pickupDate.children[1].innerText = pickUpTime.value;
+      pickupDate.children[2].innerText = pickUpComment.value;
+
+      summaryQuantity.innerText = quantity.value + ' ' + bagsSpelling(quantity.value);
+
+
     }
 
   }
   const form = document.querySelector(".form--steps");
   if (form !== null) {
     new FormSteps(form);
+  }
+
+  function bagsSpelling (nrOfBags){
+    if (nrOfBags == 1){
+      return 'worek';
+    }
+    if (nrOfBags > 1 && nrOfBags < 5 ) {
+      return 'worki';
+    }
+    if (nrOfBags >= 5){
+      return 'worków';
+    }
   }
 });
