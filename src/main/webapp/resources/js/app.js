@@ -176,7 +176,6 @@ document.addEventListener("DOMContentLoaded", function() {
       const pickUpComment = document.getElementById('pickUpComment');
 
 
-
       const pickupAddress = document.getElementById('pickupAddress')
       pickupAddress.children[0].innerText = street.value;
       pickupAddress.children[1].innerText = city.value;
@@ -190,12 +189,25 @@ document.addEventListener("DOMContentLoaded", function() {
       summaryQuantity.innerText = quantity.value + ' ' + bagsSpelling(quantity.value);
 
 
+      ifInstitutionCheckedShowInSummary();
+
     }
 
   }
   const form = document.querySelector(".form--steps");
   if (form !== null) {
     new FormSteps(form);
+  }
+
+  function ifInstitutionCheckedShowInSummary() {
+    const radioInstitution = document.querySelectorAll("input[type=radio]")
+    const summaryInstitution = document.getElementById('summaryInstitution');
+
+    radioInstitution.forEach(element => {
+      if (element.checked) {
+        summaryInstitution.innerText = element.parentElement.children[2].children[0].children[0].innerText;
+      }
+    })
   }
 
   function bagsSpelling (nrOfBags){

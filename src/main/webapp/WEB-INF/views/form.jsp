@@ -70,17 +70,17 @@
 
 
             <!-- STEP 4 -->
-            <div data-step="3">
+            <div data-step="3" id="radioInstitution">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
                     <%--                    <form:radiobuttons path="institution" items="${availableInstitutions}" itemValue="id" itemLabel="name"/>--%>
                 <c:forEach items="${availableInstitutions}" var="avInstitution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:radiobutton path="institution" value="${avInstitution.id}"/>
+                            <form:radiobutton path="institution" value="${avInstitution.id}" />
                             <span class="checkbox radio"></span>
                             <span class="description">
-                            <div class="title">Fundacja “${avInstitution.name}”</div>
+                                <div class="title">Fundacja “<span>${avInstitution.name}</span>”</div>
                             <div class="subtitle">
                                 Cel i misja: ${avInstitution.description}
                             </div>
@@ -165,7 +165,7 @@
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
+                                >Dla fundacji "<span id="summaryInstitution"> </span>" w Warszawie</span
                                 >
                             </li>
                         </ul>
