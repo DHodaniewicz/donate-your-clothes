@@ -4,7 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<%@ include file="header.jsp" %>
+<%@ include file="header-form.jsp" %>
+
+</header>
 
 <section class="form--steps">
     <div class="form--steps-instructions">
