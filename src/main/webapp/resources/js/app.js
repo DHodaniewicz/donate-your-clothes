@@ -202,25 +202,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function displaySummaryOfSelectedDonationCategories() {
     const summarySelectedCategories = document.getElementById('summarySelectedCategories');
-
     const checkboxCategories = document.querySelectorAll("input[type=checkbox]")
+
     summarySelectedCategories.innerText = '';
+
+    let innerTextSummary =''
+
     checkboxCategories.forEach(element => {
       if (element.checked) {
-        summarySelectedCategories.innerText += (element.parentElement.children[3].innerText + ',' + ' ');
+        innerTextSummary += (element.parentElement.children[3].innerText + ', ');
       }
     })
+    if (innerTextSummary != '') {
+      const innerTextSummaryToDisplay = innerTextSummary.substring(0, innerTextSummary.length - 2);
+      summarySelectedCategories.innerText = innerTextSummaryToDisplay;
+    } else {
+      summarySelectedCategories.innerText = "Nie wybrano kategorii darów!";
+    }
   }
 
   function ifInstitutionCheckedShowInSummary() {
     const radioInstitution = document.querySelectorAll("input[type=radio]")
     const summaryInstitution = document.getElementById('summaryInstitution');
 
+    let summaryInstitutionInnerText;
+
     radioInstitution.forEach(element => {
       if (element.checked) {
-        summaryInstitution.innerText = element.parentElement.children[2].children[0].children[0].innerText;
+        summaryInstitutionInnerText = element.parentElement.children[2].children[0].children[0].innerText;
       }
     })
+    if(summaryInstitutionInnerText != null){
+      summaryInstitution.innerText = summaryInstitutionInnerText;
+    } else {
+      summaryInstitution.innerText = "Nie wybrano instytucji!"
+    }
+
+
   }
 
   function bagsSpelling (nrOfBags){

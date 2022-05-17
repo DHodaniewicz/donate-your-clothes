@@ -38,13 +38,17 @@
                 <c:forEach items="${availableCategories}" var="category">
                     <div class="form-group form-group--checkbox">
                         <label>
-                        <form:checkbox path="categories" value="${category.id}"/>
+                            <form:checkbox path="categories" value="${category.id}"/>
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>
                         </label>
                     </div>
                 </c:forEach>
-
+                <div class="form-group form-group--checkbox">
+                    <label>
+                        <div class="error"><form:errors path="categories"></form:errors></div>
+                    </label>
+                </div>
 
                 <div class="form-group for">
                     <button type="button" class="btn next-step">Dalej</button>
@@ -59,6 +63,9 @@
                     <label>
                         Liczba 60l worków:
                         <form:input path="quantity" id="quantity"/>
+                        <div class="error">
+                            <form:errors path="quantity"></form:errors>
+                        </div>
                     </label>
                 </div>
 
@@ -77,7 +84,7 @@
                 <c:forEach items="${availableInstitutions}" var="avInstitution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:radiobutton path="institution" value="${avInstitution.id}" />
+                            <form:radiobutton path="institution" value="${avInstitution.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                                 <div class="title">Fundacja “<span>${avInstitution.name}</span>”</div>
@@ -88,6 +95,12 @@
                         </label>
                     </div>
                 </c:forEach>
+                <div class="form-group form-group--checkbox">
+                    <label>
+                        <div class="error"><form:errors path="institution"></form:errors></div>
+                    </label>
+
+                </div>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
@@ -103,17 +116,31 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street"  id="street" /> </label>
+                            <label>
+                                Ulica <form:input path="street" id="street"/>
+                            </label>
+                            <label>
+                                <div class="error"><form:errors path="street"></form:errors></div>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" id="city"/> </label>
+                            <label>
+                                Miasto <form:input path="city" id="city"/>
+                            </label>
+                            <label>
+                                <div class="error"><form:errors path="city"></form:errors></div>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Kod pocztowy <form:input path="zipCode" id="zipCode"/>
                             </label>
+                            <label>
+                                <div class="error"><form:errors path="zipCode"></form:errors></div>
+                            </label>
+
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -127,16 +154,25 @@
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
                             <label> Data <form:input type="date" path="pickUpDate" id="date"/> </label>
+                            <label>
+                                <div class="error"><form:errors path="pickUpDate"></form:errors></div>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label> Godzina <form:input type="time" path="pickUpTime" id="pickUpTime"/> </label>
+                            <label>
+                                <div class="error"><form:errors path="pickUpTime"></form:errors></div>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
                                 <form:textarea rows="5" path="pickUpComment" id="pickUpComment"/>
+                            </label>
+                            <label>
+                                <div class="error"><form:errors path="pickUpComment"></form:errors></div>
                             </label>
                         </div>
                     </div>
@@ -175,9 +211,9 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul id="pickupAddress">
-                                <li> </li>
-                                <li> </li>
-                                <li> </li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                                 <li>123 456 789</li>
                             </ul>
                         </div>
@@ -185,9 +221,9 @@
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul id="pickupDate">
-                                <li> </li>
-                                <li> </li>
-                                <li> </li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                             </ul>
                         </div>
                     </div>
