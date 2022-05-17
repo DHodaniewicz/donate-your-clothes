@@ -188,8 +188,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
       summaryQuantity.innerText = quantity.value + ' ' + bagsSpelling(quantity.value);
 
-
       ifInstitutionCheckedShowInSummary();
+      displaySummaryOfSelectedDonationCategories();
+
 
     }
 
@@ -197,6 +198,18 @@ document.addEventListener("DOMContentLoaded", function() {
   const form = document.querySelector(".form--steps");
   if (form !== null) {
     new FormSteps(form);
+  }
+
+  function displaySummaryOfSelectedDonationCategories() {
+    const summarySelectedCategories = document.getElementById('summarySelectedCategories');
+
+    const checkboxCategories = document.querySelectorAll("input[type=checkbox]")
+    summarySelectedCategories.innerText = '';
+    checkboxCategories.forEach(element => {
+      if (element.checked) {
+        summarySelectedCategories.innerText += (element.parentElement.children[3].innerText + ',' + ' ');
+      }
+    })
   }
 
   function ifInstitutionCheckedShowInSummary() {
@@ -212,13 +225,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function bagsSpelling (nrOfBags){
     if (nrOfBags == 1){
-      return 'worek';
+      return 'worek zawierający: ';
     }
     if (nrOfBags > 1 && nrOfBags < 5 ) {
-      return 'worki';
+      return 'worki zawierające: ';
     }
     if (nrOfBags >= 5){
-      return 'worków';
+      return 'worków zawierających: ';
     }
   }
 });

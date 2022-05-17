@@ -32,7 +32,7 @@
         <%--@elvariable id="donation" type="pl.coderslab.charity.entities.Donation"--%>
         <form:form method="post" modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
-            <div data-step="1" class="active">
+            <div data-step="1" class="active" id="categoryCheckbox">
                 <h3>Zaznacz co chcesz oddać:</h3>
                     <%--                <form:checkboxes path="categories" items="${availableCategories}" itemLabel="name" itemValue="id"/>--%>
                 <c:forEach items="${availableCategories}" var="category">
@@ -155,10 +155,10 @@
                     <div class="form-section">
                         <h4>Oddajesz:</h4>
                         <ul>
-                            <li>
+                            <li id="categoriesSummary">
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text"
-                                ><span id="summaryQuantity"></span> worki ubrań w dobrym stanie dla dzieci</span
+                                ><span id="summaryQuantity"></span><span id="summarySelectedCategories"></span> </span
                                 >
                             </li>
 
